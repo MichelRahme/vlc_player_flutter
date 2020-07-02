@@ -21,13 +21,13 @@ class _VideoPlayerState extends State<VideoPlayer> {
   bool isPlaying = true;
   @override
   void initState() {
+    super.initState();
     _videoViewController = new VlcPlayerController(onInit: () {
       _videoViewController.play();
     });
     _videoViewController.addListener(() {
       setState(() {});
     });
-    super.initState();
   }
 
   @override
