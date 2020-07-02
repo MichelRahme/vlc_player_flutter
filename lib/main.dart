@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
         title: Text(widget.title),
       ),
       body: VideoPlayer(
-        index: 2,
+        index: 0,
       ),
     );
   }
