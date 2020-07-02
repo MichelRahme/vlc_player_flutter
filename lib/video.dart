@@ -3,9 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 
-List videoList = [
-  'http://whoptv.on-the-web.tv:8081/diretta/direttats/playlist.m3u8'
-];
+List videoList = ['https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8'];
 
 class VideoPlayer extends StatefulWidget {
   VideoPlayer({Key key, this.index}) : super(key: key);
@@ -23,9 +21,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
   @override
   void initState() {
     super.initState();
-    _videoViewController = new VlcPlayerController(onInit: () {
-      _videoViewController.play();
-    });
+    _videoViewController = new VlcPlayerController(onInit: () async {});
     setState(() {});
   }
 
@@ -78,7 +74,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
     }
   }
 
-  void _takeThumbnail() async {
+  Future<void> _takeThumbnail() async {
     Uint8List data = await _videoViewController.takeSnapshot();
     setState(() => _thumbnail = Image.memory(data));
   }
